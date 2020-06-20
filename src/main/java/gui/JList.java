@@ -2,8 +2,11 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -14,7 +17,7 @@ import javax.swing.JColorChooser;
 
 public class JList extends JPanel {
 
-	int c = 1;
+	
 	
 Color  red  = new Color(255, 0, 0);
 
@@ -40,26 +43,20 @@ Color  red  = new Color(255, 0, 0);
 		add(text2);
 		
 	
-		File plik = new File("src/main/resources/listaowocow.txt"); // obiekt przechowywuj¹ce dane z pliku tekstowego
+		File plik = new File("src/main/resources/listaowocow.txt"); // obiekt przechowywujï¿½ce dane z pliku tekstowego
         Scanner in = new Scanner(plik); //odczyt danych
         String zdanie = in.nextLine(); // wczytujemy do zmiennej linie tekstu
 
-        for (int i = 1; i < 4; i++) {
-
-            System.out.println(in.next());
-            c++;	
-        }
         
-            JList list1 = new gui.JList(plik);
-            
+        ArrayList lista = new ArrayList();
+        int c = 1;
+        for (int i = 1; i < 4; i++) {
+            lista.add(in.next());
+            c++;	
+           
         }
-	
-	
-	public JList(File plik) {
-		// TODO Auto-generated constructor stub
+     System.out.println(lista);
 	}
-
-
 	@Override
 	public Dimension getPreferredSize() {
 		return new Dimension(500, 500);
